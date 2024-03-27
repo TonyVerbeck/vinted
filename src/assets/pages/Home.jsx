@@ -1,5 +1,6 @@
 import hero from "../img/hero-img.jpg";
 import whiteback from "../img/hero-whiteback.svg";
+import { Link } from "react-router-dom";
 
 const Home = ({ data }) => {
   const backgroundImage = {
@@ -14,7 +15,7 @@ const Home = ({ data }) => {
           <button>Commencer à vendre</button>
         </div>
       </section>
-      JavaScript
+
       <section className="articles">
         {data.offers.map((offer) => (
           <div key={offer.id}>
