@@ -6,6 +6,7 @@ const Home = ({ data }) => {
   const backgroundImage = {
     backgroundImage: `url(${hero})`,
   };
+
   return (
     <>
       <section className="hero-img" style={backgroundImage}>
@@ -18,9 +19,27 @@ const Home = ({ data }) => {
 
       <section className="articles">
         {data.offers.map((offer) => (
-          <div key={offer.id}>
-            <h2>{offer.owner.account.username}</h2>
-          </div>
+          <article key={offer.id} className="offer">
+            <div className="username">
+              <img
+                className="username-logo"
+                src={offer.owner.account.avatar.url}
+                alt=""
+              />
+              <span>{offer.owner.account.username}</span>
+            </div>
+            <img
+              className="img-offer"
+              src={offer.product_image.url}
+              alt="product-image"
+            />
+            <div className="infos-offer">
+              <span>{offer.product_price} €</span>
+              {offer.product_details.map((details) => {
+                <span>{details.MARQUE}</span>;
+              })}
+            </div>
+          </article>
         ))}
       </section>
     </>

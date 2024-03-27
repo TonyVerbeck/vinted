@@ -102,3 +102,34 @@ header {
   margin: 30px auto auto;
   width: 1280px;
 }
+
+.img-offer {
+  height: 360px;
+  object-fit: cover;
+  width: 235px;
+}
+
+.username {
+  align-items: center;
+  display: flex;
+  padding: 10px;
+}
+
+.username-logo {
+  border-radius: 50%;
+  height: 25px;
+  margin-right: 10px;
+  object-fit: cover;
+  width: 25px;
+}
+
+.username > span {
+  color: #999;
+  font-size: 12px;
+}
+
+.offer {
+  cursor: pointer;
+  padding: 0 6px 16px;
+  width: 235px;
+}
