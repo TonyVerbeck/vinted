@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  font-family: Maison Neue;
+  font-family: sans-serif;
 }
 
 /*------------------Header-------------------*/
@@ -147,9 +147,10 @@ header {
   padding: 8px;
 }
 
-.infos-offer > span:not(:first-child) {
+.infos-offer > div {
   color: #999;
   font-size: 12px;
+  flex-direction: column-reverse;
 }
 
 .infos-price {
@@ -188,7 +189,7 @@ button {
   outline: none;
 }
 
-.form-signup button {
+.btn-valid {
   background-color: #2cb1ba;
   border: none;
   border-radius: 5px;
@@ -238,4 +239,11 @@ h2 {
   font-size: 12px;
   margin-top: 20px;
   text-decoration: none;
+}
+
+/*------------Page Login-------------*/
+
+.login-container {
+  display: flex;
+  flex-direction: column;
 }

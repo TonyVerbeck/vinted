@@ -50,7 +50,7 @@ const Signup = () => {
       setData(response.data);
       console.log(response.data.token);
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data);
     }
   };
 
@@ -92,7 +92,11 @@ const Signup = () => {
           Conditions et Politique de Confidentialité de Vinted. Je confirme
           avoir au moins 18 ans.
         </div>
-        <button type="submit">S'inscrire</button>
+        <Link to="/">
+          <button className="btn-valid" type="submit">
+            S'inscrire
+          </button>
+        </Link>
       </form>
       <Link to="/login">
         <p className="lien-login">Tu as déja un compte? Connectes-toi !</p>

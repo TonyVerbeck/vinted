@@ -20,7 +20,11 @@ const Home = ({ data }) => {
       <section className="articles">
         {data.offers.map((offer) => {
           return (
-            <Link key={offer._id} to={`/offer/${offer._id}`}>
+            <Link
+              style={{ textDecoration: "none" }}
+              key={offer._id}
+              to={`/offer/${offer._id}`}
+            >
               <article className="offer">
                 <div className="username">
                   <img
@@ -40,8 +44,10 @@ const Home = ({ data }) => {
                   {offer.product_details.map((details) => {
                     return (
                       <>
-                        <span>{details.TAILLE}</span>
-                        <span>{details.MARQUE}</span>
+                        <div>
+                          <span>{details.TAILLE}</span>
+                          <span>{details.MARQUE}</span>
+                        </div>
                       </>
                     );
                   })}
