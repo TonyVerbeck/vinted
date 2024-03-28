@@ -7,6 +7,8 @@ body {
   font-family: Maison Neue;
 }
 
+/*------------------Header-------------------*/
+
 header {
   align-items: center;
   display: flex;
@@ -16,7 +18,7 @@ header {
   width: 1280px;
 }
 
-.btn-header {
+.btn-header button {
   border: 1px solid #2cb1ba;
   color: #2cb1ba;
   background-color: white;
@@ -27,7 +29,7 @@ header {
   width: 115px;
 }
 
-.btn-header:first-child {
+.btn-header button:first-child {
   margin-right: 20px;
 }
 
@@ -50,8 +52,10 @@ header {
   font-size: 16px;
   height: 40px;
   padding-left: 40px;
-  width: 600px;
+  width: 630px;
 }
+
+/*----------------Section Hero---------------*/
 
 .hero-img {
   background-position: 50%;
@@ -96,11 +100,14 @@ header {
   height: 45px;
 }
 
+/*-----------------Articles----------------*/
+
 .articles {
   display: flex;
   flex-wrap: wrap;
   margin: 30px auto auto;
   width: 1280px;
+  gap: 12px;
 }
 
 .img-offer {
@@ -132,4 +139,103 @@ header {
   cursor: pointer;
   padding: 0 6px 16px;
   width: 235px;
+}
+
+.infos-offer {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+.infos-offer > span:not(:first-child) {
+  color: #999;
+  font-size: 12px;
+}
+
+.infos-price {
+  font-size: 14px;
+}
+
+/*--------------------Page Signup-------------------*/
+
+.form-container,
+.form-signup {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container {
+  justify-content: center;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.form-signup {
+  margin: auto;
+  width: 275px;
+}
+
+.form-signup > input {
+  border: none;
+  border-bottom: 1px solid #fcced3;
+  height: 35px;
+  margin-bottom: 20px;
+  padding: 1px 0px;
+}
+
+.form-signup > input,
+button {
+  outline: none;
+}
+
+.form-signup button {
+  background-color: #2cb1ba;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  height: 45px;
+  margin-top: 20px;
+  outline: none;
+  width: 100%;
+}
+
+.form-checkbox {
+  color: #999;
+  font-size: 12px;
+  text-align: left;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.form-checkbox div {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.form-checkbox span {
+  font-size: 16px;
+  color: #666;
+}
+
+.form-checkbox > div input[type="checkbox"] {
+  margin-right: 20px;
+}
+
+button,
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.lien-login {
+  color: #2cb1ba;
+  font-size: 12px;
+  margin-top: 20px;
+  text-decoration: none;
 }

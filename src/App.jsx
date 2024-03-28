@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import logo from "./assets/img/logo-vinted.svg";
 import Home from "./assets/pages/Home";
 import Offer from "./assets/pages/Offer";
+import Signup from "./assets/pages/Signup";
+import Login from "./assets/pages/Login";
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -31,7 +33,7 @@ function App() {
         <header>
           <div className="logo-header">
             <Link to="/">
-              <img src={logo} alt="logo-vinted" />
+              <img src={logo} alt="" />
             </Link>
           </div>
           <div>
@@ -42,15 +44,22 @@ function App() {
               name="searchbar"
             />
           </div>
-          <div>
-            <button className="btn-header">S'inscrire</button>
-            <button className="btn-header">Se connecter</button>
+          <div className="btn-header">
+            <Link to="/signup">
+              <button>S'inscrire</button>
+            </Link>
+
+            <Link to="/login">
+              <button>Se connecter</button>
+            </Link>
           </div>
           <button className="btn-headerSold">Vends tes articles</button>
         </header>
         <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/" element={<Home data={data} />} />
-          <Route path="/offer" element={<Offer data={data} />} />
+          <Route path="/offer/:id" element={<Offer data={data} />} />
         </Routes>
       </Router>
     </>

@@ -18,29 +18,38 @@ const Home = ({ data }) => {
       </section>
 
       <section className="articles">
-        {data.offers.map((offer) => (
-          <article key={offer.id} className="offer">
-            <div className="username">
-              <img
-                className="username-logo"
-                src={offer.owner.account.avatar.url}
-                alt=""
-              />
-              <span>{offer.owner.account.username}</span>
-            </div>
-            <img
-              className="img-offer"
-              src={offer.product_image.url}
-              alt="product-image"
-            />
-            <div className="infos-offer">
-              <span>{offer.product_price} €</span>
-              {offer.product_details.map((details) => {
-                <span>{details.MARQUE}</span>;
-              })}
-            </div>
-          </article>
-        ))}
+        {data.offers.map((offer) => {
+          return (
+            <Link key={offer._id} to={`/offer/${offer._id}`}>
+              <article className="offer">
+                <div className="username">
+                  <img
+                    className="username-logo"
+                    src={offer.owner.account.avatar?.url}
+                    alt=""
+                  />
+                  <span>{offer.owner.account.username}</span>
+                </div>
+                <img
+                  className="img-offer"
+                  src={offer.product_image.url}
+                  alt=""
+                />
+                <div className="infos-offer">
+                  <span className="infos-price">{offer.product_price} €</span>
+                  {offer.product_details.map((details) => {
+                    return (
+                      <>
+                        <span>{details.TAILLE}</span>
+                        <span>{details.MARQUE}</span>
+                      </>
+                    );
+                  })}
+                </div>
+              </article>
+            </Link>
+          );
+        })}
       </section>
     </>
   );
