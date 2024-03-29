@@ -22,10 +22,10 @@ header {
   border: 1px solid #2cb1ba;
   color: #2cb1ba;
   background-color: white;
+  outline: none;
   border-radius: 5px;
   font-size: 12px;
   height: 30px;
-  outline: none;
   width: 115px;
 }
 
@@ -157,6 +157,54 @@ header {
   font-size: 14px;
 }
 
+/*-------------Page Offer----------------------*/
+
+.offer-background {
+  background-color: #ebedee;
+}
+
+.offer-container {
+  display: flex;
+  gap: 30px;
+  row-gap: 30px;
+  column-gap: 30px;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 30px;
+  width: 1280px;
+}
+
+.offer-container img {
+  height: 600px;
+  object-fit: cover;
+}
+
+.offer-container section {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  width: 400px;
+}
+
+.offer-container section > div {
+  display: block;
+}
+
+.offer-price {
+  color: black;
+  font-size: 25px;
+}
+
+.offer-details div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.offer-details > div > span {
+  font-size: 14px;
+}
 /*--------------------Page Signup-------------------*/
 
 .form-container,

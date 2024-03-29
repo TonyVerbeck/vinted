@@ -2,13 +2,12 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Signup = () => {
+const Signup = ({ handleToken }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
   const [error, setError] = useState("");
-  const [data, setData] = useState({});
 
   const handleEmailChange = (event) => {
     const value = event.target.value;
@@ -47,8 +46,8 @@ const Signup = () => {
           newsletter: newsletter,
         }
       );
-      setData(response.data);
-      console.log(response.data.token);
+      // setData(response.data);
+      handleToken(response.data.token);
     } catch (error) {
       console.log(error.response.data);
     }
