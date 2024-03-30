@@ -32,19 +32,49 @@ const Offer = () => {
 
         <section className="offer-details">
           <div>
-            <p className="offer-price">
+            <p style={{ marginBottom: "25px" }} className="offer-price">
               {data.product_price} <span>€</span>
             </p>
             {data.product_details.map((detail) => {
               const keys = Object.keys(detail);
               const keyName = keys[0];
               return (
-                <div key={keyName}>
-                  <span>{keyName}</span>
-                  <span>{detail[keyName]}</span>
+                <div
+                  style={{
+                    fontSize: "14px",
+                    display: "flex",
+                    justifyContent: "space-between",
+                  }}
+                  className="offer-etat"
+                  key={keyName}
+                >
+                  <span
+                    style={{
+                      color: "#999999",
+                      marginBottom: "6px",
+                    }}
+                  >
+                    {keyName}
+                  </span>
+                  <span style={{ color: "#666666" }}>{detail[keyName]}</span>
                 </div>
               );
             })}
+          </div>
+
+          <div className="offer-recap">
+            <p style={{ fontWeight: "700", marginBottom: "20px" }}>
+              {data.product_name}
+            </p>
+            <p style={{ color: "#666", marginBottom: "15px" }}>
+              {data.product_description}
+            </p>
+
+            <div className="offer-description">
+              <img src={data.owner.account.avatar.url} alt="avatar" />
+              <span>{data.owner.account.username}</span>
+            </div>
+            <button>Acheter</button>
           </div>
         </section>
       </main>

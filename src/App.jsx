@@ -26,11 +26,11 @@ function App() {
 
   return (
     <Router>
-      <Header token={token} />
+      <Header token={token} handleToken={handleToken} />
       <Routes>
         <Route path="/login" element={<Login handleToken={handleToken} />} />
         <Route path="/signup" element={<Signup handleToken={handleToken} />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/offers" element={<Home />} />
         <Route path="/offer/:id" element={<Offer />} />
         <Route path="/sell" element={<Sell />} />
       </Routes>

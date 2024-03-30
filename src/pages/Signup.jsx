@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = ({ handleToken }) => {
   const [username, setUsername] = useState("");
@@ -8,6 +8,8 @@ const Signup = ({ handleToken }) => {
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
     const value = event.target.value;
@@ -46,10 +48,18 @@ const Signup = ({ handleToken }) => {
           newsletter: newsletter,
         }
       );
-      // setData(response.data);
+
       handleToken(response.data.token);
+      console.log(response.data);
+      navigate("/");
     } catch (error) {
       console.log(error.response.data);
+
+      if (error.response.status === 409) {
+        setError("This email already as an account, please use another one");
+      } else if (error.response.data.message === "Missing parameters") {
+        setError("Please fill in all the fields");
+      }
     }
   };
 
@@ -91,11 +101,11 @@ const Signup = ({ handleToken }) => {
           Conditions et Politique de Confidentialité de Vinted. Je confirme
           avoir au moins 18 ans.
         </div>
-        <Link to="/">
-          <button className="btn-valid" type="submit">
-            S'inscrire
-          </button>
-        </Link>
+
+        <button className="btn-valid" type="submit">
+          S'inscrire
+        </button>
+        {error && <p style={{ color: "red" }}>{error}</p>}
       </form>
       <Link to="/login">
         <p className="lien-login">Tu as déja un compte? Connectes-toi !</p>

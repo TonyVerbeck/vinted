@@ -1,10 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = ({ handleToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -26,7 +28,8 @@ const Login = ({ handleToken }) => {
         }
       );
       handleToken(response.data.token);
-      console.log(response.data.token);
+      navigate("/");
+      console.log(response.data);
     } catch (error) {
       console.log(error.response.data);
     }
@@ -53,9 +56,7 @@ const Login = ({ handleToken }) => {
         />
 
         <div>
-          <Link to="/">
-            <input className="btn-valid" type="submit" value="Se connecter" />
-          </Link>
+          <input className="btn-valid" type="submit" value="Se connecter" />
         </div>
         <Link to="/signup">
           <p className="lien-login">Pas encore de compte? Inscris-toi !</p>

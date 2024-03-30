@@ -147,14 +147,16 @@ header {
   padding: 8px;
 }
 
-.infos-offer > div {
+.infos-offer > div > div > span {
   color: #999;
   font-size: 12px;
-  flex-direction: column-reverse;
+  display: flex;
+  /* flex-direction: column-reverse; */
 }
 
 .infos-price {
   font-size: 14px;
+  color: black;
 }
 
 /*-------------Page Offer----------------------*/
@@ -169,6 +171,7 @@ header {
   row-gap: 30px;
   column-gap: 30px;
   justify-content: space-around;
+
   margin: 0 auto;
   padding: 30px;
   width: 1280px;
@@ -188,23 +191,55 @@ header {
   width: 400px;
 }
 
-.offer-container section > div {
+/* .offer-container section > div {
   display: block;
-}
+} */
 
 .offer-price {
   color: black;
   font-size: 25px;
 }
 
-.offer-details div {
+.offer-details {
   display: flex;
-  justify-content: space-between;
 }
 
 .offer-details > div > span {
   font-size: 14px;
 }
+
+.offer-recap > .offer-description {
+  display: flex;
+  flex-direction: row;
+}
+
+.offer-description img {
+  border-radius: 50%;
+  height: 50px;
+  margin-right: 10px;
+  object-fit: cover;
+  width: 50px;
+}
+
+.offer-recap div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.offer-container button {
+  background: #09b1ba;
+  border: 1px solid #09b1ba;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  height: 36px;
+  margin-top: 50px;
+  padding: 0 16px;
+  width: 100%;
+  cursor: pointer;
+}
+
 /*--------------------Page Signup-------------------*/
 
 .form-container,

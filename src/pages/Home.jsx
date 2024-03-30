@@ -8,16 +8,19 @@ const Home = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchData = async () => {
-    const response = await axios.get(
-      "https://lereacteur-vinted-api.herokuapp.com/offers"
-    );
-
-    setData(response.data);
-    setIsLoading(false);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("backend-vinted:8080/offers");
+        // "https://lereacteur-vinted-api.herokuapp.com/offers"
+
+        setData(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     fetchData();
   }, []);
 
@@ -62,12 +65,10 @@ const Home = () => {
                   <div className="infos-offer">
                     <span className="infos-price">{offer.product_price} €</span>
                     <div className="product-details">
-                      {offer.product_details.map((details) => (
-                        <div>
-                          <span>{details.TAILLE}</span>
-                          <span>{details.MARQUE}</span>
-                        </div>
-                      ))}
+                      <div>
+                        <span>{offer.product_details[1].TAILLE}</span>
+                        <span>{offer.product_details[0].MARQUE}</span>
+                      </div>
                     </div>
                   </div>
                 </article>
