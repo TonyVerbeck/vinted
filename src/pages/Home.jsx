@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import hero from "../assets/img/hero-img.jpg";
 import whiteback from "../assets/img/hero-whiteback.svg";
 import { Link } from "react-router-dom";
 
-const Home = () => {
+const Home = ({ search, token }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("backend-vinted:8080/offers");
-        // "https://lereacteur-vinted-api.herokuapp.com/offers"
+        const response = await axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}`
+        );
 
         setData(response.data);
         setIsLoading(false);
@@ -22,7 +23,7 @@ const Home = () => {
     };
 
     fetchData();
-  }, []);
+  }, [search]);
 
   return (
     <>
@@ -37,7 +38,10 @@ const Home = () => {
             <img className="hero-back" src={whiteback} alt="" />
             <div className="hero-sold">
               <p>Prêts à faire du tri dans vos placards ?</p>
-              <button>Commencer à vendre</button>
+
+              <Link to={token ? "/publish" : "/"}>
+                <button>Commencer à vendre</button>
+              </Link>
             </div>
           </section>
 

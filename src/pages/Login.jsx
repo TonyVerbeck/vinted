@@ -58,7 +58,7 @@ const Login = ({ handleToken }) => {
         <div>
           <input className="btn-valid" type="submit" value="Se connecter" />
         </div>
-        <Link to="/signup">
+        <Link to="/signup" style={{ textDecoration: "none" }}>
           <p className="lien-login">Pas encore de compte? Inscris-toi !</p>
         </Link>
       </form>

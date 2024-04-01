@@ -1,7 +1,12 @@
 import logo from "../assets/img/logo-vinted.svg";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-const Header = ({ token, handleToken }) => {
+library.add(faMagnifyingGlass);
+
+const Header = ({ token, search, handleToken, setSearch }) => {
   return (
     <header>
       <div className="logo-header">
@@ -9,23 +14,39 @@ const Header = ({ token, handleToken }) => {
           <img src={logo} alt="" />
         </Link>
       </div>
-      <div>
+      <div className="header-searchbar">
+        <FontAwesomeIcon
+          className="header-icon"
+          icon="fa-solid fa-magnifying-glass"
+        />
         <input
           className="input-header"
           type="text"
-          placeholder="Recherche des articles"
+          placeholder="Rechercher des articles"
           name="searchbar"
+          value={search}
+          onChange={(event) => {
+            setSearch(event.target.value);
+          }}
         />
       </div>
 
       {token ? (
-        <button
-          onClick={() => {
-            handleToken(null);
-          }}
-        >
-          Se déconnecter
-        </button>
+        <>
+          <Link to="/">
+            <button
+              className="btn-disconnect"
+              onClick={() => {
+                handleToken(null);
+              }}
+            >
+              Se déconnecter
+            </button>
+          </Link>
+          <Link to="/publish">
+            <button className="btn-headerSold">Vends tes articles</button>
+          </Link>
+        </>
       ) : (
         <>
           <div className="btn-header">
@@ -37,7 +58,9 @@ const Header = ({ token, handleToken }) => {
               <button>Se connecter</button>
             </Link>
           </div>
-          <button className="btn-headerSold">Vends tes articles</button>
+          <Link to="/login">
+            <button className="btn-headerSold">Vends tes articles</button>
+          </Link>
         </>
       )}
     </header>

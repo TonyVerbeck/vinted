@@ -107,7 +107,7 @@ const Signup = ({ handleToken }) => {
         </button>
         {error && <p style={{ color: "red" }}>{error}</p>}
       </form>
-      <Link to="/login">
+      <Link to="/login" style={{ textDecoration: "none" }}>
         <p className="lien-login">Tu as déja un compte? Connectes-toi !</p>
       </Link>
     </div>

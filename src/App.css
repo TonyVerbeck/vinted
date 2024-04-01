@@ -18,6 +18,17 @@ header {
   width: 1280px;
 }
 
+.header-searchbar {
+  position: relative;
+}
+
+.header-icon {
+  position: absolute;
+  color: #bdbdbd;
+  top: 13px;
+  left: 10px;
+}
+
 .btn-header button {
   border: 1px solid #2cb1ba;
   color: #2cb1ba;
@@ -42,6 +53,16 @@ header {
   font-size: 12px;
   height: 30px;
   width: 115px;
+}
+
+.btn-disconnect {
+  background-color: #c2175b;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  height: 30px;
 }
 
 .input-header {
@@ -329,4 +350,105 @@ h2 {
 .login-container {
   display: flex;
   flex-direction: column;
+}
+
+/*------------Page Publish-------------*/
+
+.publish {
+  background-color: #ebedee;
+  height: auto;
+}
+
+.publish-container {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.publish-title {
+  font-size: 25px;
+  padding-top: 40px;
+}
+
+.file-upload-container {
+  background-color: white;
+  padding: 25px;
+  margin: 20px 0;
+}
+
+.file-upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  border: 1px dashed #ebedee;
+  border-radius: 3px;
+}
+
+h3 {
+  font-weight: 400;
+}
+
+.input-publish {
+  background-color: white;
+  margin: 20px 0;
+  box-shadow: 0 0 2px gray;
+}
+
+.inside-input-publish {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  border-bottom: 1px solid #f5f6f7;
+}
+
+.inside-input-publish > input,
+textarea {
+  color: black;
+  border: none;
+  font-size: 15px;
+  width: 50%;
+  outline: none;
+  resize: none;
+}
+
+.input-publish .inside-input-publish > input {
+  border-bottom: 1px solid #ebedee;
+  height: 25px;
+}
+
+.inside-input-publish > textarea {
+  border-bottom: 1px solid #ebedee;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+  margin: 0 15px 0 0;
+}
+
+.checkbox-style {
+  width: 50%;
+}
+
+.checkbox-style > input {
+  color: black;
+  border-bottom: 1px solid #ebedee;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+.publish-valid {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.publish-valid > button {
+  background-color: #0ab1ba;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  margin: 50px 0;
+  padding: 14px;
+  font-size: 16px;
 }
