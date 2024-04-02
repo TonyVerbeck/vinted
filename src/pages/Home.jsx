@@ -4,7 +4,7 @@ import hero from "../assets/img/hero-img.jpg";
 import whiteback from "../assets/img/hero-whiteback.svg";
 import { Link } from "react-router-dom";
 
-const Home = ({ search, token }) => {
+const Home = ({ search, token, sortPrice, priceFilter }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -12,7 +12,12 @@ const Home = ({ search, token }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}`
+          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${
+            sortPrice ? "price-desc" : "price-asc"
+          }&title=${search}&priceMin=${priceFilter[0]}&priceMax=${
+            priceFilter[1]
+          }`
+          // `https://site--backend-vinted--z2glzylh58rz.code.run/offers?title=${search}`
         );
 
         setData(response.data);
@@ -23,7 +28,7 @@ const Home = ({ search, token }) => {
     };
 
     fetchData();
-  }, [search]);
+  }, [search, sortPrice, priceFilter]);
 
   return (
     <>

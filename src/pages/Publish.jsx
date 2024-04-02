@@ -3,14 +3,14 @@ import axios from "axios";
 
 const Publish = ({ token }) => {
   const [picture, setPicture] = useState();
-  const [title, setTitle] = useState();
-  const [description, setDescription] = useState();
-  const [marque, setMarque] = useState();
-  const [taille, setTaille] = useState();
-  const [couleur, setCouleur] = useState();
-  const [etat, setEtat] = useState();
-  const [lieu, setLieu] = useState();
-  const [prix, setPrix] = useState();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [brand, setBrand] = useState("");
+  const [size, setSize] = useState("");
+  const [color, setColor] = useState("");
+  const [condition, setCondition] = useState("");
+  const [city, setCity] = useState("");
+  const [price, setPrice] = useState();
   const [exchange, setExchange] = useState(false);
 
   const handleCheckboxChange = (event) => {
@@ -25,16 +25,17 @@ const Publish = ({ token }) => {
       formData.append("picture", picture);
       formData.append("title", title);
       formData.append("description", description);
-      formData.append("marque", marque);
-      formData.append("taille", taille);
-      formData.append("couleur", couleur);
-      formData.append("etat", etat);
-      formData.append("lieu", lieu);
-      formData.append("prix", prix);
+      formData.append("brand", brand);
+      formData.append("size", size);
+      formData.append("color", color);
+      formData.append("condition", condition);
+      formData.append("city", city);
+      formData.append("price", price);
       formData.append("exchange", exchange);
 
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+        // "https://site--backend-vinted--z2glzylh58rz.code.run/offers/publish",
         formData,
         {
           headers: {
@@ -56,13 +57,20 @@ const Publish = ({ token }) => {
         <form onSubmit={handleSubmit}>
           <div className="file-upload-container">
             <div className="file-upload">
-              <input
-                type="file"
-                name="picture"
-                onChange={(event) => {
-                  setPicture(event.target.files[0]);
-                }}
-              />
+              <div className="btn-addpicture">
+                <label htmlFor="add-picture" className="label-add">
+                  <span>+</span> <span>Ajoute une photo</span>
+                </label>
+                <input
+                  id="add-picture"
+                  style={{ display: "none" }}
+                  type="file"
+                  name="picture"
+                  onChange={(event) => {
+                    setPicture(event.target.files[0]);
+                  }}
+                />
+              </div>
             </div>
           </div>
 
@@ -100,9 +108,9 @@ const Publish = ({ token }) => {
                 type="text"
                 placeholder="ex: Pantalon large marron"
                 name="marque"
-                value={marque}
+                value={brand}
                 onChange={(event) => {
-                  setMarque(event.target.value);
+                  setBrand(event.target.value);
                 }}
               ></input>
             </div>
@@ -112,9 +120,9 @@ const Publish = ({ token }) => {
                 type="text"
                 placeholder="ex: Nike"
                 name="taille"
-                value={taille}
+                value={size}
                 onChange={(event) => {
-                  setTaille(event.target.value);
+                  setSize(event.target.value);
                 }}
               ></input>
             </div>
@@ -124,9 +132,9 @@ const Publish = ({ token }) => {
                 type="text"
                 placeholder="ex: Marron"
                 name="couleur"
-                value={couleur}
+                value={color}
                 onChange={(event) => {
-                  setCouleur(event.target.value);
+                  setColor(event.target.value);
                 }}
               ></input>
             </div>
@@ -136,9 +144,9 @@ const Publish = ({ token }) => {
                 type="text"
                 placeholder="ex: En très bon état"
                 name="etat"
-                value={etat}
+                value={condition}
                 onChange={(event) => {
-                  setEtat(event.target.value);
+                  setCondition(event.target.value);
                 }}
               ></input>
             </div>
@@ -148,9 +156,9 @@ const Publish = ({ token }) => {
                 type="text"
                 placeholder="ex: Paris"
                 name="lieu"
-                value={lieu}
+                value={city}
                 onChange={(event) => {
-                  setLieu(event.target.value);
+                  setCity(event.target.value);
                 }}
               ></input>
             </div>
@@ -163,9 +171,9 @@ const Publish = ({ token }) => {
                   type="text"
                   placeholder="0,00 €"
                   name="prix"
-                  value={prix}
+                  value={price}
                   onChange={(event) => {
-                    setPrix(event.target.value);
+                    setPrice(event.target.value);
                   }}
                 ></input>
                 <div>

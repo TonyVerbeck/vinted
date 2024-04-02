@@ -1,12 +1,25 @@
-import logo from "../assets/img/logo-vinted.svg";
+import logo from "../assets/img/logo-vinted.png";
 import { Link } from "react-router-dom";
+import PriceRange from "./PriceRange";
+import SwitchButton from "./SwitchButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 library.add(faMagnifyingGlass);
 
-const Header = ({ token, search, handleToken, setSearch }) => {
+const Header = ({
+  token,
+  search,
+  handleToken,
+  setSearch,
+  sortPrice,
+  setSortPrice,
+  isDisabled,
+  // setIsDisabled,
+  priceFilter,
+  setPriceFilter,
+}) => {
   return (
     <header>
       <div className="logo-header">
@@ -14,6 +27,7 @@ const Header = ({ token, search, handleToken, setSearch }) => {
           <img src={logo} alt="" />
         </Link>
       </div>
+
       <div className="header-searchbar">
         <FontAwesomeIcon
           className="header-icon"
@@ -29,6 +43,13 @@ const Header = ({ token, search, handleToken, setSearch }) => {
             setSearch(event.target.value);
           }}
         />
+        <div className="filters">
+          <SwitchButton sortPrice={sortPrice} setSortPrice={setSortPrice} />
+          <PriceRange
+            priceFilter={priceFilter}
+            setPriceFilter={setPriceFilter}
+          />
+        </div>
       </div>
 
       {token ? (

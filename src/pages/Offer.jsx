@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Offer = () => {
@@ -12,6 +13,7 @@ const Offer = () => {
       try {
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+          // `https://site--backend-vinted--z2glzylh58rz.code.run/offer/${id}`
         );
 
         setData(response.data);
@@ -62,6 +64,8 @@ const Offer = () => {
             })}
           </div>
 
+          <div className="line"></div>
+
           <div className="offer-recap">
             <p style={{ fontWeight: "700", marginBottom: "20px" }}>
               {data.product_name}
@@ -74,7 +78,15 @@ const Offer = () => {
               <img src={data.owner.account.avatar.url} alt="avatar" />
               <span>{data.owner.account.username}</span>
             </div>
-            <button>Acheter</button>
+            <Link
+              to="/payment"
+              state={{
+                title: `${data.product_name}`,
+                price: `${data.product_price}`,
+              }}
+            >
+              <button>Acheter</button>
+            </Link>
           </div>
         </section>
       </main>

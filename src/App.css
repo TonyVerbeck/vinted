@@ -7,7 +7,11 @@ body {
   font-family: sans-serif;
 }
 
-/*------------------Header-------------------*/
+/*----------------Section Header--------------|
+|                                             |
+|                                             |
+|                                             |
+|---------------------------------------------*/
 
 header {
   align-items: center;
@@ -16,6 +20,10 @@ header {
   margin: 0 auto;
   padding: 10px 0;
   width: 1280px;
+}
+
+.logo-header img {
+  height: 40px;
 }
 
 .header-searchbar {
@@ -76,7 +84,37 @@ header {
   width: 630px;
 }
 
-/*----------------Section Hero---------------*/
+.switch-price {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  margin-top: 25px;
+}
+
+.switch-price p,
+.range-filter p {
+  margin-right: 10px;
+}
+
+.range-filter {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  margin-top: 25px;
+  width: 500px;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/*----------------Section Hero----------------|
+|                                             |
+|                                             |
+|                                             |
+|---------------------------------------------*/
 
 .hero-img {
   background-position: 50%;
@@ -102,11 +140,11 @@ header {
   justify-content: center;
   position: absolute;
   font-size: 34px;
-  height: 250px;
+  height: 270px;
   padding: 25px;
   top: 75px;
   left: 120px;
-  width: 360px;
+  width: 400px;
 }
 
 .hero-sold button {
@@ -121,7 +159,11 @@ header {
   height: 45px;
 }
 
-/*-----------------Articles----------------*/
+/*--------------Section Articles--------------|
+|                                             |
+|                                             |
+|                                             |
+|---------------------------------------------*/
 
 .articles {
   display: flex;
@@ -180,7 +222,11 @@ header {
   color: black;
 }
 
-/*-------------Page Offer----------------------*/
+/*------------------Page Offer----------------|
+|                                             |
+|                                             |
+|                                             |
+|---------------------------------------------*/
 
 .offer-background {
   background-color: #ebedee;
@@ -211,10 +257,6 @@ header {
   padding: 40px;
   width: 400px;
 }
-
-/* .offer-container section > div {
-  display: block;
-} */
 
 .offer-price {
   color: black;
@@ -261,7 +303,18 @@ header {
   cursor: pointer;
 }
 
-/*--------------------Page Signup-------------------*/
+.line {
+  background: lightgrey;
+  display: block;
+  height: 1px;
+  width: 100%;
+}
+
+/*-----------------Page Signup----------------|
+|                                             |
+|                                             |
+|                                             |
+|---------------------------------------------*/
 
 .form-container,
 .form-signup {
@@ -345,14 +398,22 @@ h2 {
   text-decoration: none;
 }
 
-/*------------Page Login-------------*/
+/*------------------Page Login----------------|
+|                                             |
+|                                             |
+|                                             |
+|---------------------------------------------*/
 
 .login-container {
   display: flex;
   flex-direction: column;
 }
 
-/*------------Page Publish-------------*/
+/*----------------Page Publish----------------|
+|                                             |
+|                                             |
+|                                             |
+|---------------------------------------------*/
 
 .publish {
   background-color: #ebedee;
@@ -451,4 +512,100 @@ input[type="checkbox"] {
   margin: 50px 0;
   padding: 14px;
   font-size: 16px;
+}
+
+.label-add {
+  color: #0ab1ba;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.label-add {
+  display: flex;
+  align-items: center;
+}
+
+.label-add span:first-child {
+  font-size: 40px;
+  margin-right: 15px;
+}
+
+.btn-addpicture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #0ab1ba;
+  border-radius: 5px;
+  height: 45px;
+  width: 200px;
+}
+
+/*----------------Page Payment----------------|
+|                                             |
+|                                             |
+|                                             |
+|---------------------------------------------*/
+
+.payment-background {
+  background: #ebedee;
+  height: auto;
+}
+
+.payment-container {
+  margin: 0 auto;
+  padding: 40px 20px;
+  width: 620px;
+}
+
+.recap-product {
+  background-color: white;
+}
+
+h4 {
+  color: #999;
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 24px 24px 8px;
+}
+
+.recap {
+  padding: 25px;
+  text-align: justify;
+}
+
+.recap-product li {
+  color: #666;
+  font-size: 16px;
+  line-height: 25px;
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-payment {
+  background: #00c06d;
+  border-color: #00c06d;
+  color: white;
+  width: 100%;
+  border: 1px solid;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 22px;
+  height: 45px;
+  padding: 0 15px;
+}
+
+.form-payment {
+  margin: 10px 0 20px;
+  padding: 10px 25px;
+}
+
+.divider {
+  background: lightgrey;
+  height: 1px;
+  width: 90%;
+  margin-left: 28px;
 }
